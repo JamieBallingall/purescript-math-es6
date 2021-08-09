@@ -11,7 +11,7 @@ exports.acoshNative = Math.acosh;
 //   2 * asinh(x) == acosh(2*x^2 + 1)
 // see https://en.wikipedia.org/wiki/Inverse_hyperbolic_functions#Other_identities
 // Rewriting gives:
-//   cosh(x) = 2 * asinh(sqrt((x - 1) / 2)))
+//   cosh(x) = 2 * asinh(sqrt((x - 1) / 2))
 // which is used below.
 exports.acoshPolyfill = function(x) {
   return 2 * exports.asinhPolyfill(Math.sqrt((x - 1) / 2));
