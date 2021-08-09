@@ -4,9 +4,17 @@
 // See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/acosh
 exports.acoshNative = Math.acosh;
 
-// Polyfill from MDN
+// MDN provides an unreliable polyfill in the form of:
+//   Math.log(x + Math.sqrt(x * x - 1))
+// This overflows for large values of x. To avoid this we implement acosh in
+// terms of asinh (for which MDN provides a robust polyfill) using the identity:
+//   2 * asinh(x) == acosh(2*x^2 + 1)
+// see https://en.wikipedia.org/wiki/Inverse_hyperbolic_functions#Other_identities
+// Rewriting gives:
+//   cosh(x) = 2 * asinh(sqrt((x - 1) / 2)))
+// which is used below.
 exports.acoshPolyfill = function(x) {
-  return Math.log(x + Math.sqrt(x * x - 1));
+  return 2 * exports.asinhPolyfill(Math.sqrt((x - 1) / 2));
 };
 
 exports.acosh = Math.acosh ? Math.acosh : exports.acoshPolyfill;
