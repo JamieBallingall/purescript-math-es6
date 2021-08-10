@@ -221,12 +221,12 @@ foreign import tanhPolyfill :: Number -> Number
 foreign import tanh :: Number -> Number
 
 -- | Native version of `trunc`. For testing only, use `trunc`.
-foreign import truncNative :: Number -> Int
+foreign import truncNative :: Number -> Number
 
 -- | Polyfill for `trunc`. For testing only, use `trunc`.
-foreign import truncPolyfill :: Number -> Int
+foreign import truncPolyfill :: Number -> Number
 
 -- | Returns the integer part of a number by removing any fractional digits. See
 -- | [Math.trunc](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/trunc)
 -- | on MDN.
-foreign import trunc :: Number -> Int
+foreign import trunc :: Number -> Number
