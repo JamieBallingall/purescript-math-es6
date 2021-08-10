@@ -7,10 +7,11 @@ them.
 
 Specifically, the functions `acosh`, `asinh`, `atanh`, `cbrt`, `clz32`, `cosh`,
 `expm1`, `fround`, `hypot`, `hypot2`, `imul`, `log1p`, `log2`, `log10`, `sinh`,
-`sign`, `tanh`, and `trunc` are available. Each function has three versions.
+`sign`, `tanh`, and `trunc` are available. Between
+[purescript-math](https://github.com/purescript/purescript-math)
+and this library all the methods and properties of the Javascript Math object
+are available except `Math.random()`.
 
-| Function name | Example | Description |
-| ---           | ---     | ---         |
-| `x`           | `acosh` | The production version of the function and the only one exported from this library. Uses the native version where possible and the polyfill otherwise |
-| `xPolyfill`   | `acoshPolyfill` | A polyfill for `x`. Do not use directly. Is available as a seperate function for testing |
-| `xNative`     | `acoshNative` | A version without a polyfill. Do not use directly. Is available as a reference against which to test the polyfill |
+Polyfill quality is generally good. See the project
+[purescript-math-es6-quality](https://github.com/JamieBallingall/purescript-math-es6-quality)
+for comparisons of native and polyfill functions.
